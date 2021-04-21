@@ -32,3 +32,5 @@ result += (counter.length == 1 ? counter[0][0] : counter[1][0]) + "\n";
 result +=  range[1]-range[0] + "\n";
 
 console.log(result);
+
+// 2178 미로에서 빠른 길 찾기 (But 막혀있는 경우는 DFS로 찾아야함)
