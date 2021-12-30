@@ -73,4 +73,4 @@ while(Q.getQueue().length != 0) {
 
 console.log(loop);
 
-//
+// 0 과 1로 이루어진 미로에서 몇번만에 도착하는가

@@ -16,18 +16,21 @@ console.log(a+b);
 
 //한줄
 const readline = require('readline');
-
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
+let input = [];
 rl.on('line', function(line) {
-
-    console.log(line);
-
+    // line 읽어온 전체
+    input = line.split(" "); // 띄어 쓰기 별로 나눠서 배열입력
+    input = line.split("\n"); // 줄 별로 나눠서 배열입력
     rl.close();
 }).on("close", function() {
+
+    //코드 작성?
+
     process.exit();
 });
 

@@ -1,9 +1,3 @@
-class Dijkstra {
-    constructor(n, list, init) {
-        
-    }
-}
-
 
 
 // EX 1 부터 시작해서 최소 거리
@@ -21,7 +15,7 @@ let input = [
 ];
 
 // settings
-const map = Array.from(Array(6), () => Array(6).fill(Infinity));
+const map = Array.from(Array(6), () => Array(6).fill(0));
 const visited = Array.from(Array(6), () => false);
 visited[0] = true;
 input.forEach(line => {
@@ -30,40 +24,6 @@ input.forEach(line => {
     map[e[1]-1][e[0]-1] = parseInt(e[2]);
 });
 for(let i=0; i<map.length; ++i) {map[i][i] = 0;}
-let weight = [...map[0]];
-console.log(map)
-while(visited.includes(false)) {
-    console.log("========================");
-    console.log(weight)
-    console.log(visited)
-
-    // 다음 방문 안한것들 중 가장 작은 것
-    let point = undefined;
-    let min = undefined;
-    for(let i=0; i<weight.length; ++i) {
-        if(!visited[i]) {
-            if(min != undefined) {
-                if(min > weight[i]) {
-                    point = i
-                    min = weight[i]
-                }
-            } else {
-                min = weight[i]
-                point = i;
-            };
-        }   
-    }
-    visited[point] = true;
-    for(const index in map[point]) {
-        if(!visited[index]) {
-            // 방문 안한 노드만 확인
-            // 현재 위치의 값과 연결된 노드의 가중치를 더해서 최소값 배열의 값보다 작으면 대입
-            if(min + map[point][index] < weight[index]) weight[index] = min + map[point][index];
-        }
-    }
-}
-console.log("결과 : ",weight);
-
 
 class Dijkstra {
     /*
@@ -82,20 +42,22 @@ class Dijkstra {
 
         let cursor = start;
         while(this.visited.includes(false)) {
+            console.log(cursor)
             for(let index in this.map[cursor]) {
                 if(this.visited.includes(index)) continue;
 
                 const weight = this.map[cursor][index];
                 if(weight === 0) continue;
-                /*
+                
                 // 가중치 주기
                 if(weight + this.distance[cursor] < this.distance[index]) { 
                     this.distance[index] = weight + this.distance[cursor];
                 }
-                */
+                /*
                 if(weight < this.distance[index]) { // 가중치 없음
                     this.distance[index] = weight;
                 }
+                */
             }
 
             // 방문 안한 가장 작은 노드
@@ -106,8 +68,12 @@ class Dijkstra {
                 }
             }
             if(next[1] === -1) break;
-            this.visited[next] = true;
+            cursor = next[1];
+            this.visited[next[1]] = true;
         }
         return this.distance;
     } // getDistance
 }
+
+const test = new Dijkstra(6, map);
+console.log(test.getDistance(0));
