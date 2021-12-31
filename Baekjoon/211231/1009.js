@@ -13,9 +13,9 @@ function solution(input) {
     for(let round = 1; round <= T; round++) {
         const [a, b] = input[round].split(" ").map(e => parseInt(e));
 
-        let temp = parseInt(String(a)[0]) || 1;
+        let temp = a % 10 || 1
         for(let i = 2; i <= b; i++) {
-            temp = (temp * a) % 10 || 1
+            temp = (temp * a) % 10 || 1;
         }
         console.log(temp)
     }
