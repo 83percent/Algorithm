@@ -28,5 +28,5 @@ function solution(total_sp, skills) {
 }
 
 const total_sp = 121;
-const skills = 	[[1, 2], [1, 3], [3, 6], [3, 4], [3, 5]]	;
+const skills = 	[[1, 2], [1, 3], [3, 6], [3, 4], [3, 5]];
 console.log(solution(total_sp, skills))

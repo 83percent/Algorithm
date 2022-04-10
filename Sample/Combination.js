@@ -9,7 +9,13 @@ class Combination {
         
     }
 }
-
+function getCombinationCount(N, M) {
+    function factorial(n) {
+        return n ? n * factorial(n-1) : 1;
+    }
+    return factorial(N) / (factorial(M) * factorial(N - M));
+}
 
 const numbers = [1,3,7,5];
-console.log(new Combination(numbers).getList());
+
+console.log(getCombinationCount(10, 3));

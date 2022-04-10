@@ -48,8 +48,7 @@ let input = [];
 rl.on('line', function (line) {
     // input에 테스트 케이스를 넣는 작업
     input.push(line)
-})
-    .on('close', function () {
+}).on('close', function () {
     // 넣은 테스트 케이스 배열 input을 사용하는 작업
     // TODO
     console.log(input[0]) // 첫번쨰 줄을 나타냄 
