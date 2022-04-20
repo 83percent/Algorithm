@@ -2,16 +2,12 @@
     같은 그래프 내에 존재하는지 확인하는 그래프.
 */
 class Union_Find {
-    constructor(N) {
-        this.parent = new Array(N);
-        // 정점 0 에서 시작
-        for(let i=0; i<N; ++i) {
-            this.parent[i] = i;
-        }
-    }
+    constructor(N) {this.parent = Array.from({length : N}, (_,i) => i);}
     getParent(x) {
         if(this.parent[x] == x) return x;
-        else return this.getParent(this.parent[x])
+        else {
+            return this.getParent(this.parent[x]);
+        }
     }
     UnionParent(a,b) {
         a = this.getParent(a);
@@ -24,5 +20,4 @@ class Union_Find {
         b = this.getParent(b);
         return a==b;
     }
-    get parent() { return this.parent; }
 }
